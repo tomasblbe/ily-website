@@ -1,0 +1,19 @@
+extends main
+
+block content
+  link(rel='stylesheet', href='/stylesheets/mracik_detail.css')
+
+  div(id='gray-background')
+
+  div(id='detail-window')
+
+    div(id='detail-header')
+      div(id='date-container')=mracik.datum_formatted
+
+      form(action='/' id='close-button-form')
+        button(id='close-button') &times;
+
+    div(id='image-container')
+      img(id='image' src=`../images/${mracik.nazov_obrazka}`)
+
+    div(id='text-container')=mracik.text

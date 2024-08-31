@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet' href='/stylesheets/main.css')
+    link(rel='preconnect' href="https://fonts.googleapis.com")
+    link(rel='preconnect' href="https://fonts.gstatic.com" crossorigin='')
+    link(rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,900&display=swap")
+    script(src='http://localhost:3000/javascripts/scripts.js' defer='')
+  body
+    if vsetkyMraciky.length
+
+      each mracik in vsetkyMraciky
+        div(class='mracik-container' style=`margin-left:${mracik.margin*100}%`)
+          img(class='mrak-image' src='../style-images/mrak.png')
+          div(class='mracik-preview-container' id=`${mracik._id}-div`)
+            a(href=`/mraciky/${mracik._id}`) 
+              div(class='mracik-preview-shadow')
+              
+            div(class='mracik-preview-date')=mracik.datum_formatted
+              
+              //img(class='mracik-preview-img' id=`${mracik._id}` src=`../images/${mracik.nazov_obrazka}`)
+            
+    else 
+      p Nie su ziadne mraciky
+  
+    a(href='/create')
+      img(id='plus-mrak' src='../style-images/plus-mrak.png')
+
+    img(id= 'trava' src='../style-images/trava.png')
+
+    block content
+

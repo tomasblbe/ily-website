@@ -1,0 +1,31 @@
+extends main
+
+block content 
+  link(rel='stylesheet', href='/stylesheets/mracik_create.css')
+
+  div(class='gray-background mracik-create')
+
+  div(id='create-window')
+
+    div(id='create-header')
+      div(id='title-container') Vytvoriť mráčik
+
+      form(action='/' id='close-button-form')
+        button(class='close-button') &times;
+      
+    form(action='create' method='POST' enctype='multipart/form-data')
+      div(id='date-input-container')
+        input(type='date' name='datum' id='date-input' required)
+
+      div(id='photo-upload-container')
+        label(id='photo-upload-label' for='photo-upload-input') Vyber fotku
+        input(type='file' name='obrazok' id='photo-upload-input' required)
+
+        div(id='photo-preview' class='')
+          img(id='photo-preview-image')
+      
+      div(id='text-input-container')
+        textarea(name='text' id='text-input' required)
+
+      label(for='submit-button' id='submit-button-label') Vypustit
+      button(type='submit' id='submit-button')
